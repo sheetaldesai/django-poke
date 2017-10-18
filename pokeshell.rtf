@@ -1,0 +1,21 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 >>> userSheetal = Users.objects.create(name="sheetal", alias="sheetal", email="sheetal@gmail.com", password="password", birth_date=timezone.now(), receivedPokes=0)\
+>>> userSheetal = Users.objects.create(name="aditya", alias="aditya", email="aditya@gmail.com", password="password", birth_date=timezone.now(), receivedPokes=0)\
+>>> userSheetal = Users.objects.get(name="sheetal")\
+>>> userAditya = Users.objects.get(name="aditya")\
+>>> userRishma = Users.objects.create(name="rishma", alias="rishma", email="rishma@gmail.com", password="password", birth_date=timezone.now(), receivedPokes=0)\
+>>> pokeSheetalByRishma = Pokes.objects.create(reciever=userSheetal, poker=userRishma, numPokesByPoker=1)\
+>>> print userSheetal.pokes\
+pokeApp.Pokes.None\
+>>> print userSheetal.pokes.all()\
+<QuerySet [<Pokes: sheetal rishma 1>]>\
+>>> pokeSheetalByAditya = Pokes.objects.create(reciever=userSheetal, poker=userAditya, numPokesByPoker=1)\
+>>> print userSheetal.pokes.all()\
+<QuerySet [<Pokes: sheetal rishma 1>, <Pokes: sheetal aditya 1>]>\
+>>> print userSheetal.pokes.filter(poker=userAditya)\
+<QuerySet [<Pokes: sheetal aditya 1>]>}
